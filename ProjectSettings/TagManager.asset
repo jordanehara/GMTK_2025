@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Line
+  - Creature
   layers:
   - Default
   - TransparentFX

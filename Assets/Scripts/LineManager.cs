@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LineManager : MonoBehaviour
@@ -29,15 +26,14 @@ public class LineManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            // DestroyLines();
+            DestroyLines();
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         currentLine.DrawCollisionShape(collision.transform.position);
-        // DestroyLines();
-        // currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);
+        DestroyLines();
     }
 
     private void DestroyLines()
@@ -47,6 +43,7 @@ public class LineManager : MonoBehaviour
         {
             Destroy(line);
         }
+        currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);
     }
 }
 

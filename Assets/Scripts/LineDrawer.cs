@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Unity.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class LineDrawer : MonoBehaviour
 {
@@ -11,6 +8,7 @@ public class LineDrawer : MonoBehaviour
     private List<Vector2> points = new List<Vector2>();
     private const int maxLength = 100;
     private PolygonCollider2D polygonCollider;
+    private bool creatureFound = false; // Move to creature
 
     void Start()
     {
@@ -68,6 +66,7 @@ public class LineDrawer : MonoBehaviour
         {
             collisionPosition
         };
+
         for (int i = line.positionCount - 2; i - 1 >= 0; i--)
         {
             if (IsIntersectionInBounds(line.GetPosition(i), line.GetPosition(i - 1), collisionPosition))
@@ -79,6 +78,7 @@ public class LineDrawer : MonoBehaviour
         }
 
         polygonCollider.points = loop.ToArray();
+        SearchForCreatures();
     }
 
     public bool IsIntersectionInBounds(Vector3 lineStart, Vector3 lineEnd, Vector3 intersection)
@@ -86,12 +86,28 @@ public class LineDrawer : MonoBehaviour
         float distAC = Vector3.Distance(lineStart, intersection);
         float distBC = Vector3.Distance(lineEnd, intersection);
         float distAB = Vector3.Distance(lineStart, lineEnd);
-        print($"({lineStart},{lineEnd}): {Math.Abs(distAC + distBC - distAB)}");
         if (Math.Abs(distAC + distBC - distAB) > 0.02f)
         {
             return false;
         }
 
         return true;
+    }
+
+    private void SearchForCreatures()
+    {
+        GameObject[] creatures = GameObject.FindGameObjectsWithTag("Creature");
+        foreach (GameObject creature in creatures)
+        {
+            var exists = polygonCollider.OverlapPoint(creature.transform.position);
+            if (exists)
+            {
+                if (!creatureFound)
+                {
+                    print("found");
+                    creatureFound = true;
+                }
+            }
+        }
     }
 }
