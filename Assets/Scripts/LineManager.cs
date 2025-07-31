@@ -5,10 +5,12 @@ public class LineManager : MonoBehaviour
     public LineDrawer captureLine;
     private LineDrawer currentLine;
     public Pointer pointer;
+    public EdgeCollider2D edgeCollider;
+    private Vector3 currentPosition;
 
     void Update()
     {
-        Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         currentPosition.z = 1f;
 
         if (Input.GetMouseButtonDown(0))
@@ -19,16 +21,27 @@ public class LineManager : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             pointer.transform.position = currentPosition;
-            currentLine.SetPosition(currentPosition);
+            currentLine.SetPosition(currentPosition, edgeCollider);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            // GameObject[] lines = GameObject.FindGameObjectsWithTag("Line");
-            // foreach (GameObject line in lines)
-            // {
-            //     Destroy(line);
-            // }
+            DestroyLines();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        DestroyLines();
+        currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);
+    }
+
+    private void DestroyLines()
+    {
+        GameObject[] lines = GameObject.FindGameObjectsWithTag("Line");
+        foreach (GameObject line in lines)
+        {
+            Destroy(line);
         }
     }
 }

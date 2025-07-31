@@ -1,20 +1,21 @@
+using System;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class LineDrawer : MonoBehaviour
 {
     public LineRenderer line;
-    public EdgeCollider2D edgeCollider;
     private List<Vector2> points = new List<Vector2>();
-    private const int maxLength = 40;
+    private const int maxLength = 100;
 
     void Start()
     {
         line.transform.position = Vector3.zero;
     }
 
-    public void SetPosition(Vector3 pos)
+    public void SetPosition(Vector3 pos, EdgeCollider2D edgeCollider)
     {
         if (!CanAppend(pos)) return;
 
@@ -24,13 +25,14 @@ public class LineDrawer : MonoBehaviour
         // Add new point and simplify the line
         line.positionCount++;
         line.SetPosition(line.positionCount - 1, pos);
+
         if (line.positionCount > 1)
         {
             line.Simplify(0.02f);
             points = new List<Vector2>();
         }
 
-        for (int i = 0; i < line.positionCount; i++)
+        for (int i = 0; i < line.positionCount - 2; i++)
         {
             points.Add(line.GetPosition(i));
         }
