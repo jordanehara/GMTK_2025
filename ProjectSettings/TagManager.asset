@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Line
   - Creature
+  - Pointer
   layers:
   - Default
   - TransparentFX
