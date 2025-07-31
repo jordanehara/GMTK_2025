@@ -5,7 +5,6 @@ public class LineManager : MonoBehaviour
     public LineDrawer captureLine;
     private LineDrawer currentLine;
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -23,7 +22,11 @@ public class LineManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (currentLine.line.loop) print("LOOP");
+            GameObject[] lines = GameObject.FindGameObjectsWithTag("Line");
+            foreach (GameObject line in lines)
+            {
+                Destroy(line);
+            }
         }
     }
 }

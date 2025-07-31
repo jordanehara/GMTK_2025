@@ -8,9 +8,7 @@ public class LineDrawer : MonoBehaviour
     {
         if (CanAppend(pos))
         {
-            print("can append");
             line.positionCount++;
-            print("increased: " + line.positionCount);
             line.SetPosition(line.positionCount - 1, pos);
         }
     }
