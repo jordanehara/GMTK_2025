@@ -22,11 +22,11 @@ public class LineManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            GameObject[] lines = GameObject.FindGameObjectsWithTag("Line");
-            foreach (GameObject line in lines)
-            {
-                Destroy(line);
-            }
+            // GameObject[] lines = GameObject.FindGameObjectsWithTag("Line");
+            // foreach (GameObject line in lines)
+            // {
+            //     Destroy(line);
+            // }
         }
     }
 }
