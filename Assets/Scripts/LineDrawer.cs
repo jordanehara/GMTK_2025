@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -9,10 +10,12 @@ public class LineDrawer : MonoBehaviour
     public LineRenderer line;
     private List<Vector2> points = new List<Vector2>();
     private const int maxLength = 100;
+    private PolygonCollider2D polygonCollider;
 
     void Start()
     {
         line.transform.position = Vector3.zero;
+        polygonCollider = GetComponent<PolygonCollider2D>();
     }
 
     public void SetPosition(Vector3 pos, EdgeCollider2D edgeCollider)
@@ -28,7 +31,7 @@ public class LineDrawer : MonoBehaviour
 
         if (line.positionCount > 1)
         {
-            line.Simplify(0.02f);
+            line.Simplify(0.01f);
             points = new List<Vector2>();
         }
 
@@ -57,5 +60,38 @@ public class LineDrawer : MonoBehaviour
             return true;
         }
         return Vector3.Distance(pos, line.GetPosition(line.positionCount - 1)) > 0.1f;
+    }
+
+    public void DrawCollisionShape(Vector3 collisionPosition)
+    {
+        List<Vector2> loop = new List<Vector2>
+        {
+            collisionPosition
+        };
+        for (int i = line.positionCount - 2; i - 1 >= 0; i--)
+        {
+            if (IsIntersectionInBounds(line.GetPosition(i), line.GetPosition(i - 1), collisionPosition))
+            {
+                loop.Add(line.GetPosition(i));
+                break;
+            }
+            loop.Add(line.GetPosition(i));
+        }
+
+        polygonCollider.points = loop.ToArray();
+    }
+
+    public bool IsIntersectionInBounds(Vector3 lineStart, Vector3 lineEnd, Vector3 intersection)
+    {
+        float distAC = Vector3.Distance(lineStart, intersection);
+        float distBC = Vector3.Distance(lineEnd, intersection);
+        float distAB = Vector3.Distance(lineStart, lineEnd);
+        print($"({lineStart},{lineEnd}): {Math.Abs(distAC + distBC - distAB)}");
+        if (Math.Abs(distAC + distBC - distAB) > 0.02f)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
