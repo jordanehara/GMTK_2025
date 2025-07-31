@@ -4,6 +4,7 @@ public class LineManager : MonoBehaviour
 {
     public LineDrawer captureLine;
     private LineDrawer currentLine;
+    public Pointer pointer;
 
     void Update()
     {
@@ -17,6 +18,7 @@ public class LineManager : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            pointer.transform.position = currentPosition;
             currentLine.SetPosition(currentPosition);
         }
 
