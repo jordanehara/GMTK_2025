@@ -5,13 +5,13 @@ using UnityEngine.EventSystems;
 
 public abstract class Creature : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    protected Rigidbody2D rb;
     // Stats
     [SerializeField] public int maxHealth;
     private int health;
-    [SerializeField] protected float movementSpeed;
+    [SerializeField] public float movementSpeed;
 
-    // Animators
+    // Creature States
     [SerializeField] protected Animator animator;
     public enum CreatureStates { Idle, Walk, Attack }
     [SerializeField] protected CreatureStates currentState;
@@ -19,6 +19,8 @@ public abstract class Creature : MonoBehaviour
     [SerializeField] protected float minIdleTime;
     [SerializeField] protected float maxIdleTime;
     [SerializeField] protected float walkTime;
+    protected bool stateComplete;
+    protected List<string> randomActionsList = new List<string>();
 
     // Capture
     private List<int> captureLines = new List<int>();
@@ -30,7 +32,7 @@ public abstract class Creature : MonoBehaviour
     {
         lineManager = GameObject.FindGameObjectWithTag("LineManager").GetComponent<LineManager>();
         rb = GetComponent<Rigidbody2D>();
-        setState(CreatureStates.Idle);
+        stateComplete = true;
     }
 
     public virtual void Update()
@@ -40,6 +42,20 @@ public abstract class Creature : MonoBehaviour
             health = maxHealth;
             captureLines.Clear();
         }
+    }
+
+    protected void AddToActionsList(string action, int num)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            randomActionsList.Add(action);
+        }
+    }
+
+    protected string ChooseRandomActionFromList()
+    {
+        stateComplete = false;
+        return randomActionsList[Random.Range(0, randomActionsList.Count - 1)];
     }
 
     void setState(CreatureStates state)
@@ -81,6 +97,7 @@ public abstract class Creature : MonoBehaviour
     protected virtual void Attack()
     {
         print("attack");
+        stateComplete = true;
     }
 
     protected virtual IEnumerator Walk()
@@ -101,6 +118,7 @@ public abstract class Creature : MonoBehaviour
         rb.linearVelocity = direction.normalized * movementSpeed;
         yield return new WaitForSeconds(walkTime);
         rb.linearVelocity = Vector3.zero;
+        stateComplete = true;
     }
 
     protected IEnumerator Idle()
@@ -108,5 +126,6 @@ public abstract class Creature : MonoBehaviour
         print("idle");
         setState(CreatureStates.Idle);
         yield return new WaitForSeconds(Random.Range(minIdleTime, maxIdleTime));
+        stateComplete = true;
     }
 }

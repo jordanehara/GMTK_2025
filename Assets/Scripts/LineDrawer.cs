@@ -6,7 +6,7 @@ public class LineDrawer : MonoBehaviour
 {
     public LineRenderer line;
     private List<Vector2> points = new List<Vector2>();
-    private const int maxLength = 100;
+    private const int maxLength = 40;
     private PolygonCollider2D polygonCollider;
 
     void Start()

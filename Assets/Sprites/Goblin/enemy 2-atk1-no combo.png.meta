@@ -1,37 +1,46 @@
 fileFormatVersion: 2
-guid: 784041a932bdc6345bdb2d105ee0e572
+guid: 138da1a578bf4ce44b0a085a9ab87000
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5072654216580466684
-    second: enemy 2-atk2_0
+      213: -3928404849645885962
+    second: enemy 2-atk1-no combo_0
   - first:
-      213: 6800760064327298648
-    second: enemy 2-atk2_1
+      213: -1681237507922265781
+    second: enemy 2-atk1-no combo_1
   - first:
-      213: -2745418133042176022
-    second: enemy 2-atk2_2
+      213: 6474129685617708194
+    second: enemy 2-atk1-no combo_2
   - first:
-      213: -880328850726589861
-    second: enemy 2-atk2_3
+      213: 2166240794048060102
+    second: enemy 2-atk1-no combo_3
   - first:
-      213: -1884050504948171696
-    second: enemy 2-atk2_4
+      213: -3458080724453930808
+    second: enemy 2-atk1-no combo_4
   - first:
-      213: -4370844190804832195
-    second: enemy 2-atk2_5
+      213: -6933431997310692520
+    second: enemy 2-atk1-no combo_5
   - first:
-      213: -467563810586006367
-    second: enemy 2-atk2_6
+      213: -1098237475326848371
+    second: enemy 2-atk1-no combo_6
   - first:
-      213: 1191551363881579895
-    second: enemy 2-atk2_7
+      213: 2079700608867540187
+    second: enemy 2-atk1-no combo_7
   - first:
-      213: -4371249754446218478
-    second: enemy 2-atk2_8
+      213: 2690150736469462979
+    second: enemy 2-atk1-no combo_8
   - first:
-      213: -4977577780812882355
-    second: enemy 2-atk2_9
+      213: -9212919075959694630
+    second: enemy 2-atk1-no combo_9
+  - first:
+      213: -2507794335837118972
+    second: enemy 2-atk1-no combo_10
+  - first:
+      213: 7750438539566823922
+    second: enemy 2-atk1-no combo_11
+  - first:
+      213: -4893633146030441464
+    second: enemy 2-atk1-no combo_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -140,12 +149,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy 2-atk2_0
+      name: enemy 2-atk1-no combo_0
       rect:
         serializedVersion: 2
-        x: 76
+        x: 49
         y: 32
-        width: 31
+        width: 48
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -155,41 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4087558bddf4a99b0800000000000000
-      internalID: -5072654216580466684
+      spriteID: 6f56fe25a908b79c0800000000000000
+      internalID: -3928404849645885962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 2-atk2_1
+      name: enemy 2-atk1-no combo_1
       rect:
         serializedVersion: 2
-        x: 237
+        x: 215
         y: 32
-        width: 31
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 85e24ec1f37216e50800000000000000
-      internalID: 6800760064327298648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy 2-atk2_2
-      rect:
-        serializedVersion: 2
-        x: 387
-        y: 32
-        width: 64
+        width: 42
         height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,19 +186,85 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aefda1cf0c056e9d0800000000000000
-      internalID: -2745418133042176022
+      spriteID: b49fa35e46b0ba8e0800000000000000
+      internalID: -1681237507922265781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 2-atk2_3
+      name: enemy 2-atk1-no combo_2
       rect:
         serializedVersion: 2
-        x: 535
+        x: 397
+        y: 27
+        width: 64
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac0e0dc5aab8d950800000000000000
+      internalID: 6474129685617708194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy 2-atk1-no combo_3
+      rect:
+        serializedVersion: 2
+        x: 556
         y: 32
-        width: 40
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cad1336688001e10800000000000000
+      internalID: 2166240794048060102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy 2-atk1-no combo_4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 31
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c84c4e17ed6200d0800000000000000
+      internalID: -3458080724453930808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy 2-atk1-no combo_5
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 32
+        width: 31
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -221,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5ae9ee039178c3f0800000000000000
-      internalID: -880328850726589861
+      spriteID: 85318f5555087cf90800000000000000
+      internalID: -6933431997310692520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 2-atk2_4
+      name: enemy 2-atk1-no combo_6
       rect:
         serializedVersion: 2
-        x: 598
-        y: 39
-        width: 14
-        height: 22
+        x: 772
+        y: 38
+        width: 7
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +296,108 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05c3ba14c028ad5e0800000000000000
-      internalID: -1884050504948171696
+      spriteID: d821f1cb5d642c0f0800000000000000
+      internalID: -1098237475326848371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 2-atk2_5
+      name: enemy 2-atk1-no combo_7
       rect:
         serializedVersion: 2
-        x: 689
+        x: 876
+        y: 32
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc96be5fa49cdc10800000000000000
+      internalID: 2079700608867540187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy 2-atk1-no combo_8
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 32
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cf848f77d5555520800000000000000
+      internalID: 2690150736469462979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy 2-atk1-no combo_9
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 32
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada900d99e2252080800000000000000
+      internalID: -9212919075959694630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy 2-atk1-no combo_10
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 32
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e11b2a656823dd0800000000000000
+      internalID: -2507794335837118972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy 2-atk1-no combo_11
+      rect:
+        serializedVersion: 2
+        x: 1488
         y: 32
         width: 48
-        height: 36
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,39 +406,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d309f7ebd54a753c0800000000000000
-      internalID: -4370844190804832195
+      spriteID: 2f9b064c9c61f8b60800000000000000
+      internalID: 7750438539566823922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 2-atk2_6
+      name: enemy 2-atk1-no combo_12
       rect:
         serializedVersion: 2
-        x: 847
-        y: 32
-        width: 50
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ac61380131e289f0800000000000000
-      internalID: -467563810586006367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy 2-atk2_7
-      rect:
-        serializedVersion: 2
-        x: 1007
+        x: 1647
         y: 32
         width: 50
         height: 37
@@ -309,52 +428,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7753bcff6ad398010800000000000000
-      internalID: 1191551363881579895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy 2-atk2_8
-      rect:
-        serializedVersion: 2
-        x: 1167
-        y: 32
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21b38b912833653c0800000000000000
-      internalID: -4371249754446218478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy 2-atk2_9
-      rect:
-        serializedVersion: 2
-        x: 1327
-        y: 32
-        width: 50
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d4e55c471671ceab0800000000000000
-      internalID: -4977577780812882355
+      spriteID: 80c37cdc492561cb0800000000000000
+      internalID: -4893633146030441464
       vertices: []
       indices: 
       edges: []
@@ -373,16 +448,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy 2-atk2_0: -5072654216580466684
-      enemy 2-atk2_1: 6800760064327298648
-      enemy 2-atk2_2: -2745418133042176022
-      enemy 2-atk2_3: -880328850726589861
-      enemy 2-atk2_4: -1884050504948171696
-      enemy 2-atk2_5: -4370844190804832195
-      enemy 2-atk2_6: -467563810586006367
-      enemy 2-atk2_7: 1191551363881579895
-      enemy 2-atk2_8: -4371249754446218478
-      enemy 2-atk2_9: -4977577780812882355
+      enemy 2-atk1-no combo_0: -3928404849645885962
+      enemy 2-atk1-no combo_1: -1681237507922265781
+      enemy 2-atk1-no combo_10: -2507794335837118972
+      enemy 2-atk1-no combo_11: 7750438539566823922
+      enemy 2-atk1-no combo_12: -4893633146030441464
+      enemy 2-atk1-no combo_2: 6474129685617708194
+      enemy 2-atk1-no combo_3: 2166240794048060102
+      enemy 2-atk1-no combo_4: -3458080724453930808
+      enemy 2-atk1-no combo_5: -6933431997310692520
+      enemy 2-atk1-no combo_6: -1098237475326848371
+      enemy 2-atk1-no combo_7: 2079700608867540187
+      enemy 2-atk1-no combo_8: 2690150736469462979
+      enemy 2-atk1-no combo_9: -9212919075959694630
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
