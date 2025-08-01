@@ -302,7 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7000bda4a8bb3eb4abe73eede452e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: 0
 --- !u!58 &672693285
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -555,9 +554,6 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 1076470583}
     - targetCorrespondingSourceObject: {fileID: 955200765118638888, guid: 3b0018858f1d93d4db7aa49873472c2f, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1076470587}
-    - targetCorrespondingSourceObject: {fileID: 955200765118638888, guid: 3b0018858f1d93d4db7aa49873472c2f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1076470579}
   m_SourcePrefab: {fileID: 100100000, guid: 3b0018858f1d93d4db7aa49873472c2f, type: 3}
@@ -613,18 +609,6 @@ MonoBehaviour:
   minIdleTime: 2
   maxIdleTime: 2
   walkTime: 1
---- !u!114 &1076470587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076470578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7394f8c3dbb8a124093595a58da6f110, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1398446416
 GameObject:
   m_ObjectHideFlags: 0
