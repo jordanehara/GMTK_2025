@@ -12,11 +12,6 @@ public class Creature : MonoBehaviour
     public List<int> captureLines = new List<int>();
     public LineManager lineManager;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (!lineManager.isDrawing)
