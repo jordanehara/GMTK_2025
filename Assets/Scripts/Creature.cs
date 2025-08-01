@@ -12,6 +12,13 @@ public class Creature : MonoBehaviour
     public List<int> captureLines = new List<int>();
     public LineManager lineManager;
 
+    private bool isCaptured = false;
+
+    void Awake()
+    {
+        lineManager = GameObject.FindGameObjectWithTag("LineManager").GetComponent<LineManager>();
+    }
+
     void Update()
     {
         if (!lineManager.isDrawing)
@@ -37,12 +44,17 @@ public class Creature : MonoBehaviour
             health -= 1;
             if (health == 0)
             {
-                print(name + " captured");
+                isCaptured = true;
             }
             else
             {
                 captureLines.Add(lineId);
             }
         }
+    }
+
+    public bool IsCaptured()
+    {
+        return isCaptured;
     }
 }
