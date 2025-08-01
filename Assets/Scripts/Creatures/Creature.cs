@@ -83,6 +83,7 @@ public abstract class Creature : MonoBehaviour
         print("attack");
     }
 
+    protected virtual IEnumerator Walk()
     {
         print("walking");
         setState(CreatureStates.Walk);
