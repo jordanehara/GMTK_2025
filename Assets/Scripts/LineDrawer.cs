@@ -8,7 +8,7 @@ public class LineDrawer : MonoBehaviour
     private List<Vector2> points = new List<Vector2>();
     private const int maxLength = 100;
     private PolygonCollider2D polygonCollider;
-    private bool found = false;
+
     void Start()
     {
         line.transform.position = Vector3.zero;

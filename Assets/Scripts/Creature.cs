@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Creature : MonoBehaviour
@@ -38,19 +37,16 @@ public class Creature : MonoBehaviour
 
     public void Capture(int lineId)
     {
-        print(lineId);
-        if (lineManager.isDrawing && !captureLines.Contains(lineId))
+        if (lineManager.isDrawing && health > 0)
         {
             health -= 1;
             if (health == 0)
             {
-                print("captured");
+                print(name + " captured");
             }
             else
             {
-                print(health);
                 captureLines.Add(lineId);
-                print(captureLines.Count);
             }
         }
     }
