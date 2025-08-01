@@ -1,12 +1,20 @@
+using System;
 using UnityEngine;
 
 public class LineManager : MonoBehaviour
 {
+    #region Stats
+    [SerializeField]
+    public int health = 50;
+    public int score = 0;
+    #endregion
+
     public LineDrawer captureLine;
     private LineDrawer currentLine;
     public Pointer pointer;
     public EdgeCollider2D edgeCollider;
     private Vector3 currentPosition;
+    public bool isDrawing = false;
 
     void Update()
     {
@@ -15,35 +23,51 @@ public class LineManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            isDrawing = true;
             currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);
         }
 
         if (Input.GetMouseButton(0))
         {
-            pointer.transform.position = currentPosition;
-            currentLine.SetPosition(currentPosition, edgeCollider);
+            if (currentLine != null)
+            {
+                pointer.transform.position = currentPosition;
+                currentLine.SetPosition(currentPosition, edgeCollider);
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             DestroyLines();
+            isDrawing = false;
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        currentLine.DrawCollisionShape(collision.transform.position);
+        currentLine.CheckCapture(collision.transform.position);
         DestroyLines();
+        isDrawing = true;
+        currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);
     }
 
-    private void DestroyLines()
+    public void DestroyLines()
     {
         GameObject[] lines = GameObject.FindGameObjectsWithTag("Line");
         foreach (GameObject line in lines)
         {
             Destroy(line);
         }
-        currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);
     }
+
+    #region Stat modification
+    public void TakeDamage(int damage)
+    {
+    }
+
+    public void UpdateScore(int modifier)
+    {
+    }
+    #endregion
 }
 

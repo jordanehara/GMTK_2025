@@ -8,8 +8,7 @@ public class LineDrawer : MonoBehaviour
     private List<Vector2> points = new List<Vector2>();
     private const int maxLength = 100;
     private PolygonCollider2D polygonCollider;
-    private bool creatureFound = false; // Move to creature
-
+    private bool found = false;
     void Start()
     {
         line.transform.position = Vector3.zero;
@@ -60,7 +59,7 @@ public class LineDrawer : MonoBehaviour
         return Vector3.Distance(pos, line.GetPosition(line.positionCount - 1)) > 0.1f;
     }
 
-    public void DrawCollisionShape(Vector3 collisionPosition)
+    public void CheckCapture(Vector3 collisionPosition)
     {
         List<Vector2> loop = new List<Vector2>
         {
@@ -102,11 +101,7 @@ public class LineDrawer : MonoBehaviour
             var exists = polygonCollider.OverlapPoint(creature.transform.position);
             if (exists)
             {
-                if (!creatureFound)
-                {
-                    print("found");
-                    creatureFound = true;
-                }
+                creature.gameObject.GetComponent<Creature>().Capture(GetInstanceID());
             }
         }
     }
