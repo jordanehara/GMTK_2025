@@ -54,10 +54,6 @@ public abstract class Creature : MonoBehaviour
             lineManager.DestroyLines();
             health = maxHealth;
         }
-        else if (collision.gameObject.tag == "Wall")
-        {
-            rb.linearVelocity = -rb.linearVelocity;
-        }
     }
 
     public void Capture(int lineId)
@@ -87,14 +83,12 @@ public abstract class Creature : MonoBehaviour
         print("attack");
     }
 
-    protected virtual IEnumerator Walk()
     {
         print("walking");
         setState(CreatureStates.Walk);
 
         // Get random direction
         direction = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 1.0f);
-        print(direction);
         if (direction.x < 0)
         {
             transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
@@ -104,7 +98,6 @@ public abstract class Creature : MonoBehaviour
             transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         }
         rb.linearVelocity = direction.normalized * movementSpeed;
-        print(rb.linearVelocity);
         yield return new WaitForSeconds(walkTime);
         rb.linearVelocity = Vector3.zero;
     }
