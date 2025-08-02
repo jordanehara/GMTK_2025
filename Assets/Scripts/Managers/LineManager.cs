@@ -10,6 +10,7 @@ public class LineManager : MonoBehaviour
     #endregion
 
     [SerializeField] private AudioClip drawSound;
+    private AudioSource drawSoundSource;
     [SerializeField] private AudioClip hurtSound;
     public LineDrawer captureLine;
     private LineDrawer currentLine;
@@ -25,6 +26,7 @@ public class LineManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            drawSoundSource = SoundManager.instance.PlaySoundFXClip(drawSound, transform, 1f, true);
             isDrawing = true;
             currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);
         }
@@ -40,6 +42,7 @@ public class LineManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            drawSoundSource.Stop();
             ResetLineDrawer();
         }
     }
