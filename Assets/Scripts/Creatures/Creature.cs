@@ -36,11 +36,7 @@ public abstract class Creature : MonoBehaviour
     private DamageFlash damageFlash;
     #endregion
 
-    #region  Capture
     protected LineManager lineManager;
-
-    private bool isCaptured = false;
-    #endregion
 
     void Awake()
     {
@@ -100,8 +96,7 @@ public abstract class Creature : MonoBehaviour
             Damage();
             if (health == 0)
             {
-                SoundManager.instance.PlaySoundFXClip(capturedSoundClip, transform, 5f);
-                isCaptured = true;
+                SoundManager.instance.PlaySoundFXClip(capturedSoundClip, transform, 1f);
                 Destroy(gameObject);
             }
         }
@@ -123,7 +118,6 @@ public abstract class Creature : MonoBehaviour
 
     protected virtual IEnumerator Walk()
     {
-        print("walking");
         setState(CreatureStates.Walk);
 
         // Get random direction
@@ -140,15 +134,12 @@ public abstract class Creature : MonoBehaviour
         yield return new WaitForSeconds(walkTime);
         rb.linearVelocity = Vector3.zero;
         stateComplete = true;
-        print("walking done");
     }
 
     protected IEnumerator Idle()
     {
-        print("idle");
         setState(CreatureStates.Idle);
         yield return new WaitForSeconds(Random.Range(minIdleTime, maxIdleTime));
         stateComplete = true;
-        print("idle done");
     }
 }

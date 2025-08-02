@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Goblin : Creature
@@ -22,10 +21,8 @@ public class Goblin : Creature
 
     protected IEnumerator Attack()
     {
-        // print("attack");
         setState(CreatureStates.Attack);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         stateComplete = true;
-        // print("attack done");
     }
 }
