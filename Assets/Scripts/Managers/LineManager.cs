@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineManager : MonoBehaviour
 {
     #region Stats
-    [SerializeField] public int health = 50;
+    [SerializeField] public int health = 10;
     public int score = 0;
     #endregion
 
@@ -83,8 +83,14 @@ public class LineManager : MonoBehaviour
     }
 
     #region Stat modification
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
+        health -= 1;
+        print("remaining health: " + health);
+        if (health == 0)
+        {
+            print("dead");
+        }
     }
 
     #endregion

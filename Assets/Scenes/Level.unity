@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6f55c664105e945bde09b88ff568d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 10
   score: 0
   drawSound: {fileID: 8300000, guid: 42fdb7b30f5d6b04d8df9c5f169c7edf, type: 3}
   captureLine: {fileID: 5819430039661755439, guid: f29ea7db259127741badb739ca2f179b, type: 3}
@@ -894,7 +894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1799437305276100916, guid: 73a53c2225e769c409776f71e427f5e2, type: 3}
       propertyPath: currentState
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7027504103881843064, guid: 73a53c2225e769c409776f71e427f5e2, type: 3}
       propertyPath: m_Name

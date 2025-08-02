@@ -71,6 +71,7 @@ public abstract class Creature : MonoBehaviour
 
     protected void setState(CreatureStates state)
     {
+        currentState = state;
         animator.SetInteger("state", (int)state);
     }
 
@@ -86,6 +87,11 @@ public abstract class Creature : MonoBehaviour
         {
             ResetHealth();
             lineManager.DestroyLines();
+
+            if (currentState == CreatureStates.Attack)
+            {
+                lineManager.TakeDamage();
+            }
         }
     }
 
