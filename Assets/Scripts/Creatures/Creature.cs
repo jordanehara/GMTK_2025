@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public abstract class Creature : MonoBehaviour
 {
-    protected Rigidbody2D rb;
-    // Stats
+    #region Stats
     [SerializeField] public int maxHealth;
     private int health;
     [SerializeField] public float movementSpeed;
+    public float attackRange = 0.5f;
+    public LayerMask lineLayer;
+    #endregion
 
-    // Creature States
+    #region UI
+    private TextMeshPro healthText;
+    [SerializeField] float healthTextFlashTime = 0.5f;
+    #endregion
+
+    #region Creature States
+    protected Rigidbody2D rb;
     [SerializeField] protected Animator animator;
     public enum CreatureStates { Idle, Walk, Attack }
     [SerializeField] protected CreatureStates currentState;
@@ -21,18 +30,23 @@ public abstract class Creature : MonoBehaviour
     [SerializeField] protected float walkTime;
     protected bool stateComplete;
     protected List<string> randomActionsList = new List<string>();
+    private DamageFlash damageFlash;
+    #endregion
 
-    // Capture
+    #region  Capture
     private List<int> captureLines = new List<int>();
     protected LineManager lineManager;
 
     private bool isCaptured = false;
+    #endregion
 
     void Awake()
     {
         lineManager = GameObject.FindGameObjectWithTag("LineManager").GetComponent<LineManager>();
         rb = GetComponent<Rigidbody2D>();
         stateComplete = true;
+        damageFlash = GetComponent<DamageFlash>();
+        healthText = GetComponentInChildren<TextMeshPro>();
     }
 
     public virtual void Update()
@@ -77,6 +91,8 @@ public abstract class Creature : MonoBehaviour
         if (lineManager.isDrawing && health > 0)
         {
             health -= 1;
+            damageFlash.CallDamageFlash();
+
             if (health == 0)
             {
                 print($"{name} Captured");
@@ -87,6 +103,12 @@ public abstract class Creature : MonoBehaviour
                 captureLines.Add(lineId);
             }
         }
+    }
+
+    private void HealthFlasher()
+    {
+        healthText.text = health.ToString();
+        healthText.transform.position = transform.position + new Vector3(0f, GetComponent<SpriteRenderer>().bounds.size.y, 0f);
     }
 
     public bool IsCaptured()

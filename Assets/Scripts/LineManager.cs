@@ -38,8 +38,7 @@ public class LineManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            DestroyLines();
-            isDrawing = false;
+            ResetLineDrawer();
         }
     }
 
@@ -60,14 +59,17 @@ public class LineManager : MonoBehaviour
         }
     }
 
+    public void ResetLineDrawer()
+    {
+        DestroyLines();
+        isDrawing = false;
+    }
+
     #region Stat modification
     public void TakeDamage(int damage)
     {
     }
 
-    public void UpdateScore(int modifier)
-    {
-    }
     #endregion
 }
 

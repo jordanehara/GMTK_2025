@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 716906615}
   - component: {fileID: 716906614}
   - component: {fileID: 716906616}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Line Manager
   m_TagString: LineManager
   m_Icon: {fileID: 0}
@@ -886,6 +886,10 @@ PrefabInstance:
     - target: {fileID: 215711785222118848, guid: 73a53c2225e769c409776f71e427f5e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799437305276100916, guid: 73a53c2225e769c409776f71e427f5e2, type: 3}
+      propertyPath: attackRange
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1799437305276100916, guid: 73a53c2225e769c409776f71e427f5e2, type: 3}
       propertyPath: currentState

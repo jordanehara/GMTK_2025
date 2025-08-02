@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Goblin : Creature
 {
-
+    public Transform attackPoint;
     void Start()
     {
         AddToActionsList("Walk", 3);
@@ -23,12 +23,10 @@ public class Goblin : Creature
 
     protected IEnumerator Attack()
     {
-        print("attack");
-        var length = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        print(length);
+        // print("attack");
         setState(CreatureStates.Attack);
-        yield return new WaitForSeconds(length);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         stateComplete = true;
-        print("attack done");
+        // print("attack done");
     }
 }
