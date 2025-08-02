@@ -13,6 +13,10 @@ public abstract class Creature : MonoBehaviour
     public LayerMask lineLayer;
     #endregion
 
+    #region Sound
+    [SerializeField] private AudioClip captureSoundClip;
+    #endregion
+
     #region UI
     private TextMeshPro healthText;
     #endregion
@@ -32,7 +36,6 @@ public abstract class Creature : MonoBehaviour
     #endregion
 
     #region  Capture
-    private List<int> captureLines = new List<int>();
     protected LineManager lineManager;
 
     private bool isCaptured = false;
@@ -52,7 +55,6 @@ public abstract class Creature : MonoBehaviour
         if (!lineManager.isDrawing)
         {
             health = maxHealth;
-            captureLines.Clear();
         }
     }
 
@@ -88,21 +90,22 @@ public abstract class Creature : MonoBehaviour
     {
         if (lineManager.isDrawing && health > 0)
         {
-            health -= 1;
-            HealthFlasher();
-            damageFlash.CallDamageFlash();
-
+            Damage();
             if (health == 0)
             {
                 print($"{name} Captured");
                 isCaptured = true;
                 Destroy(gameObject);
             }
-            else
-            {
-                captureLines.Add(lineId);
-            }
         }
+    }
+
+    private void Damage()
+    {
+        health -= 1;
+        HealthFlasher();
+        damageFlash.CallDamageFlash();
+        SoundManager.instance.PlaySoundFXClip(captureSoundClip, transform, 0.5f);
     }
 
     private void HealthFlasher()

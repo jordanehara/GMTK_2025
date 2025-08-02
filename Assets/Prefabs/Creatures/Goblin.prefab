@@ -56,7 +56,7 @@ MonoBehaviour:
   lineLayer:
     serializedVersion: 2
     m_Bits: 64
-  healthTextFlashTime: 0.5
+  captureSoundClip: {fileID: 8300000, guid: 2f79e346bb206394cb3e40651cdc93ea, type: 3}
   animator: {fileID: 8232251869751304097}
   currentState: 0
   minIdleTime: 1
