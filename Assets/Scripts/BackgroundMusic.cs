@@ -8,10 +8,4 @@ public class BackgroundMusic : MonoBehaviour
     {
         DontDestroyOnLoad(transform.gameObject);
     }
-
-    public void PlayMusic()
-    {
-        if (bgm.isPlaying) return;
-        bgm.Play();
-    }
 }

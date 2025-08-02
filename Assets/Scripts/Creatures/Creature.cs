@@ -100,7 +100,7 @@ public abstract class Creature : MonoBehaviour
             Damage();
             if (health == 0)
             {
-                SoundManager.instance.PlaySoundFXClip(capturedSoundClip, transform, 0.5f);
+                SoundManager.instance.PlaySoundFXClip(capturedSoundClip, transform, 5f);
                 isCaptured = true;
                 Destroy(gameObject);
             }
