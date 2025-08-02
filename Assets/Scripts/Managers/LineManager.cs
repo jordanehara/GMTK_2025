@@ -44,7 +44,10 @@ public class LineManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        currentLine.CheckCapture(collision.transform.position);
+        if (collision.gameObject.tag == "Pointer")
+        {
+            currentLine.CheckCapture(collision.transform.position);
+        }
         DestroyLines();
         isDrawing = true;
         currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);

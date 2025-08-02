@@ -10,13 +10,11 @@ public abstract class Creature : MonoBehaviour
     [SerializeField] public int maxHealth;
     private int health;
     [SerializeField] public float movementSpeed;
-    public float attackRange = 0.5f;
     public LayerMask lineLayer;
     #endregion
 
     #region UI
     private TextMeshPro healthText;
-    [SerializeField] float healthTextFlashTime = 0.5f;
     #endregion
 
     #region Creature States
@@ -91,12 +89,14 @@ public abstract class Creature : MonoBehaviour
         if (lineManager.isDrawing && health > 0)
         {
             health -= 1;
+            HealthFlasher();
             damageFlash.CallDamageFlash();
 
             if (health == 0)
             {
                 print($"{name} Captured");
                 isCaptured = true;
+                Destroy(gameObject);
             }
             else
             {
@@ -107,8 +107,8 @@ public abstract class Creature : MonoBehaviour
 
     private void HealthFlasher()
     {
+        print(health);
         healthText.text = health.ToString();
-        healthText.transform.position = transform.position + new Vector3(0f, GetComponent<SpriteRenderer>().bounds.size.y, 0f);
     }
 
     public bool IsCaptured()

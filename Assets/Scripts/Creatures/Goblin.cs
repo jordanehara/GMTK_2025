@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Goblin : Creature
 {
-    public Transform attackPoint;
     void Start()
     {
         AddToActionsList("Walk", 3);

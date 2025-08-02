@@ -8,6 +8,7 @@ TagManager:
   - Creature
   - Pointer
   - LineManager
+  - Test
   layers:
   - Default
   - TransparentFX
