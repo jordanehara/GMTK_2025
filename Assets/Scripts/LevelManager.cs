@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [Range(1, 5)]
+    [Range(0, 4)]
     public int level;
-    public
+
+    [SerializeField] public List<GameObject> levels = new List<GameObject>();
 
     void Awake()
     {
         // Get the background and proper enemy prefabs
-        switch (level)
-        {
-            case 1:
-                break;
-        }
+        levels[level].SetActive(true);
+
     }
 
     void Start()

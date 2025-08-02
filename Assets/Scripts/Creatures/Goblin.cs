@@ -8,8 +8,8 @@ public class Goblin : Creature
     void Start()
     {
         AddToActionsList("Walk", 3);
-        AddToActionsList("Idle", 1);
-        AddToActionsList("Attack", 6);
+        AddToActionsList("Idle", 2);
+        AddToActionsList("Attack", 5);
     }
 
     public override void Update()
@@ -21,9 +21,14 @@ public class Goblin : Creature
         }
     }
 
-    protected override void Attack()
+    protected IEnumerator Attack()
     {
-        print("goblin attack");
+        print("attack");
+        var length = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        print(length);
+        setState(CreatureStates.Attack);
+        yield return new WaitForSeconds(length);
         stateComplete = true;
+        print("attack done");
     }
 }

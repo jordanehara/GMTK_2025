@@ -58,7 +58,7 @@ public abstract class Creature : MonoBehaviour
         return randomActionsList[Random.Range(0, randomActionsList.Count - 1)];
     }
 
-    void setState(CreatureStates state)
+    protected void setState(CreatureStates state)
     {
         animator.SetInteger("state", (int)state);
     }
@@ -94,12 +94,6 @@ public abstract class Creature : MonoBehaviour
         return isCaptured;
     }
 
-    protected virtual void Attack()
-    {
-        print("attack");
-        stateComplete = true;
-    }
-
     protected virtual IEnumerator Walk()
     {
         print("walking");
@@ -119,6 +113,7 @@ public abstract class Creature : MonoBehaviour
         yield return new WaitForSeconds(walkTime);
         rb.linearVelocity = Vector3.zero;
         stateComplete = true;
+        print("walking done");
     }
 
     protected IEnumerator Idle()
@@ -127,5 +122,6 @@ public abstract class Creature : MonoBehaviour
         setState(CreatureStates.Idle);
         yield return new WaitForSeconds(Random.Range(minIdleTime, maxIdleTime));
         stateComplete = true;
+        print("idle done");
     }
 }
