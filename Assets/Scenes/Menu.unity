@@ -205,7 +205,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 853783338}
         m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
-        m_MethodName: LoadLevelScene
+        m_MethodName: LoadLevelSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

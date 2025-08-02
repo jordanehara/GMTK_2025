@@ -5,9 +5,9 @@ public class Goblin : Creature
 {
     void Start()
     {
-        // AddToActionsList("Walk", 3);
-        // AddToActionsList("Idle", 2);
-        AddToActionsList("Attack", 5);
+        AddToActionsList("Walk", 4);
+        AddToActionsList("Idle", 1);
+        AddToActionsList("Attack", 4);
     }
 
     public override void Update()
