@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -297,6 +298,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388ea12d628723e4ba413fee6d4a473d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  start: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.5009173
+      outSlope: 1.5009173
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.13325185
+      value: 0.2
+      inSlope: -0.41162333
+      outSlope: -0.41162333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.557771
+      outWeight: 0.08180534
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.23074754
+      outSlope: -0.23074754
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &672693279
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +487,7 @@ MonoBehaviour:
   health: 10
   score: 0
   drawSound: {fileID: 8300000, guid: 42fdb7b30f5d6b04d8df9c5f169c7edf, type: 3}
+  hurtSound: {fileID: 8300000, guid: 1ee3857ddd2d45c41aca4ae070e93599, type: 3}
   captureLine: {fileID: 5819430039661755439, guid: f29ea7db259127741badb739ca2f179b, type: 3}
   pointer: {fileID: 672693283}
   edgeCollider: {fileID: 716906616}

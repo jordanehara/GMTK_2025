@@ -10,6 +10,7 @@ public class LineManager : MonoBehaviour
     #endregion
 
     [SerializeField] private AudioClip drawSound;
+    [SerializeField] private AudioClip hurtSound;
     public LineDrawer captureLine;
     private LineDrawer currentLine;
     public Pointer pointer;
@@ -86,7 +87,8 @@ public class LineManager : MonoBehaviour
     public void TakeDamage()
     {
         health -= 1;
-        print("remaining health: " + health);
+        SoundManager.instance.PlaySoundFXClip(hurtSound, transform, 1f);
+        StartCoroutine(Camera.main.GetComponent<Shake>().Shaking());
         if (health == 0)
         {
             print("dead");

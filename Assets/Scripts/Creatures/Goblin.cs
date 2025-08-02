@@ -5,8 +5,8 @@ public class Goblin : Creature
 {
     void Start()
     {
-        AddToActionsList("Walk", 3);
-        AddToActionsList("Idle", 2);
+        // AddToActionsList("Walk", 3);
+        // AddToActionsList("Idle", 2);
         AddToActionsList("Attack", 5);
     }
 
