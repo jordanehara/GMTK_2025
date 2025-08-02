@@ -1,14 +1,15 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class LineManager : MonoBehaviour
 {
     #region Stats
-    [SerializeField]
-    public int health = 50;
+    [SerializeField] public int health = 50;
     public int score = 0;
     #endregion
 
+    [SerializeField] private AudioClip drawSound;
     public LineDrawer captureLine;
     private LineDrawer currentLine;
     public Pointer pointer;
@@ -48,6 +49,14 @@ public class LineManager : MonoBehaviour
         {
             currentLine.CheckCapture(collision.transform.position);
         }
+        else
+        {
+            GameObject[] creatures = GameObject.FindGameObjectsWithTag("Creature");
+            foreach (GameObject creature in creatures)
+            {
+                creature.GetComponent<Creature>().ResetHealth();
+            }
+        }
         DestroyLines();
         isDrawing = true;
         currentLine = Instantiate(captureLine, currentPosition, Quaternion.identity);
@@ -66,6 +75,11 @@ public class LineManager : MonoBehaviour
     {
         DestroyLines();
         isDrawing = false;
+        GameObject[] creatures = GameObject.FindGameObjectsWithTag("Creature");
+        foreach (GameObject creature in creatures)
+        {
+            creature.GetComponent<Creature>().ResetHealth();
+        }
     }
 
     #region Stat modification

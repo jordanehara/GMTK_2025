@@ -438,6 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   score: 0
+  drawSound: {fileID: 8300000, guid: 42fdb7b30f5d6b04d8df9c5f169c7edf, type: 3}
   captureLine: {fileID: 5819430039661755439, guid: f29ea7db259127741badb739ca2f179b, type: 3}
   pointer: {fileID: 672693283}
   edgeCollider: {fileID: 716906616}
@@ -902,7 +903,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7085709758211185288, guid: 73a53c2225e769c409776f71e427f5e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 73a53c2225e769c409776f71e427f5e2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

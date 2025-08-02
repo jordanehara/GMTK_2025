@@ -15,10 +15,11 @@ public abstract class Creature : MonoBehaviour
 
     #region Sound
     [SerializeField] private AudioClip captureSoundClip;
+    [SerializeField] private AudioClip capturedSoundClip;
     #endregion
 
     #region UI
-    private TextMeshPro healthText;
+    public TextMeshPro healthText;
     #endregion
 
     #region Creature States
@@ -77,23 +78,29 @@ public abstract class Creature : MonoBehaviour
         animator.SetInteger("state", (int)state);
     }
 
+    public void ResetHealth()
+    {
+        healthText.text = "";
+        health = maxHealth;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Pointer" || collision.gameObject.tag == "Line")
         {
+            ResetHealth();
             lineManager.DestroyLines();
-            health = maxHealth;
         }
     }
 
-    public void Capture(int lineId)
+    public void Capture()
     {
         if (lineManager.isDrawing && health > 0)
         {
             Damage();
             if (health == 0)
             {
-                print($"{name} Captured");
+                SoundManager.instance.PlaySoundFXClip(capturedSoundClip, transform, 0.5f);
                 isCaptured = true;
                 Destroy(gameObject);
             }
@@ -112,11 +119,6 @@ public abstract class Creature : MonoBehaviour
     {
         print(health);
         healthText.text = health.ToString();
-    }
-
-    public bool IsCaptured()
-    {
-        return isCaptured;
     }
 
     protected virtual IEnumerator Walk()

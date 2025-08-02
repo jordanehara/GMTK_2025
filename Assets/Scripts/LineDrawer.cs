@@ -101,7 +101,7 @@ public class LineDrawer : MonoBehaviour
             var exists = polygonCollider.OverlapPoint(creature.transform.position);
             if (exists)
             {
-                creature.gameObject.GetComponent<Creature>().Capture(GetInstanceID());
+                creature.gameObject.GetComponent<Creature>().Capture();
             }
         }
     }
