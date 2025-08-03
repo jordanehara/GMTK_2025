@@ -5,7 +5,7 @@ public class OrcMage : Creature
 {
     void Start()
     {
-        AddToActionsList("Walk", 4);
+        AddToActionsList("Walk", 1);
         AddToActionsList("Idle", 1);
         // AddToActionsList("Attack", 4);
     }
