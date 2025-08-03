@@ -60,6 +60,7 @@ public class LineManager : MonoBehaviour
             {
                 creature.GetComponent<Creature>().ResetHealth();
             }
+            drawSoundSource.Stop();
         }
         DestroyLines();
         isDrawing = true;

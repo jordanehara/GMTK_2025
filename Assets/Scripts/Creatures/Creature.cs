@@ -19,7 +19,7 @@ public abstract class Creature : MonoBehaviour
     #endregion
 
     #region UI
-    public TextMeshPro healthText;
+    private TextMeshPro healthText;
     #endregion
 
     #region Creature States
