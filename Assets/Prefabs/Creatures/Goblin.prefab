@@ -58,7 +58,6 @@ MonoBehaviour:
     m_Bits: 64
   captureSoundClip: {fileID: 8300000, guid: 2f79e346bb206394cb3e40651cdc93ea, type: 3}
   capturedSoundClip: {fileID: 8300000, guid: 4cc341576333738449cba7e9cf93e1a2, type: 3}
-  healthText: {fileID: 0}
   animator: {fileID: 8232251869751304097}
   currentState: 0
   minIdleTime: 1
@@ -133,7 +132,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5650281320042558418, guid: fd15356063175564d9d6a350d2d68ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

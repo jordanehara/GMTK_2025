@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3183717485141616447}
+  - component: {fileID: 7155130566310314368}
   - component: {fileID: 6127329086485400022}
   - component: {fileID: 7769466388289500332}
   - component: {fileID: 1794414987428597535}
@@ -38,6 +39,30 @@ Transform:
   - {fileID: 9099177254689741368}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7155130566310314368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196995762630890981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772bdd14bb3f37843b67caf5e65d4fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  movementSpeed: 1
+  lineLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  captureSoundClip: {fileID: 8300000, guid: 2f79e346bb206394cb3e40651cdc93ea, type: 3}
+  capturedSoundClip: {fileID: 8300000, guid: 4cc341576333738449cba7e9cf93e1a2, type: 3}
+  animator: {fileID: 5051083615618330350}
+  currentState: 0
+  minIdleTime: 0.5
+  maxIdleTime: 1
+  walkTime: 1
 --- !u!114 &6127329086485400022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4829420877847616023, guid: a42a36eccd68f4e4bbefcc67af82c17f, type: 3}
+  m_Sprite: {fileID: 67918993002258934, guid: 2709a1d57f3c22b4fa083ef58f839b17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,7 +182,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7, y: 0.55}
+    oldSize: {x: 0.7, y: 0.54}
     newSize: {x: 0.7, y: 0.55}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
