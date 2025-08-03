@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
     public int level;
 
     [SerializeField] public List<GameObject> levels = new List<GameObject>();
+    [SerializeField] private GameObject canvas;
+    // [SerializeField] private LevelButton levelButton;
 
     void Awake()
     {
@@ -22,6 +24,10 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        GameObject[] creatures = GameObject.FindGameObjectsWithTag("Creatures");
+        if (creatures.Length == 0)
+        {
+            canvas.SetActive(true);
+        }
     }
 }
