@@ -90,13 +90,9 @@ public class LineManager : MonoBehaviour
     #region Stat modification
     public void TakeDamage()
     {
-        health -= 1;
+        drawSoundSource.Stop();
         SoundManager.instance.PlaySoundFXClip(hurtSound, transform, 1f);
         StartCoroutine(Camera.main.GetComponent<Shake>().Shaking());
-        if (health == 0)
-        {
-            print("dead");
-        }
     }
 
     #endregion

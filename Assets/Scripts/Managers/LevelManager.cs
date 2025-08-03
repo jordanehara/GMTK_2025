@@ -5,15 +5,16 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public int level = 1;
+    bool loaded = false;
 
     [SerializeField] public List<GameObject> levels = new List<GameObject>();
-    [SerializeField] private GameObject canvas;
+    [SerializeField] public GameObject canvas;
     // [SerializeField] private LevelButton levelButton;
 
     void Awake()
     {
         // Get the background and proper enemy prefabs
-        levels[level - 1].SetActive(true);
+        LoadLevel();
     }
 
     void Start()
@@ -25,9 +26,20 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         GameObject[] creatures = GameObject.FindGameObjectsWithTag("Creature");
-        if (creatures.Length == 0)
+        if (creatures.Count() == 0)
         {
+            print("none found");
             canvas.SetActive(true);
         }
+    }
+
+    public void LoadLevel()
+    {
+        levels[level - 1].SetActive(true);
+    }
+
+    public void UnloadLevel()
+    {
+        levels[level - 1].SetActive(false);
     }
 }

@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class OrcMage : Creature
 {
+    private GameObject orbInst;
+
     void Start()
     {
-        AddToActionsList("Walk", 1);
+        AddToActionsList("Walk", 4);
         AddToActionsList("Idle", 1);
-        // AddToActionsList("Attack", 4);
+        AddToActionsList("Attack", 4);
     }
 
     public override void Update()
@@ -21,8 +23,11 @@ public class OrcMage : Creature
 
     protected IEnumerator Attack()
     {
-        setState(CreatureStates.Attack);
+        var attackType = Random.Range(2, 4);
+        setState((CreatureStates)attackType);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         stateComplete = true;
     }
+
+
 }

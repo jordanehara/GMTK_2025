@@ -8,7 +8,7 @@ TagManager:
   - Creature
   - Pointer
   - LineManager
-  - Test
+  - Projectile
   layers:
   - Default
   - TransparentFX

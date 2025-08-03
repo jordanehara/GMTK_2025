@@ -9,12 +9,21 @@ public class LevelSelector : MonoBehaviour
 
     void Awake()
     {
-        GetComponentInChildren<TextMeshProUGUI>().text = $"{level}. " + taskName;
     }
 
     public void LoadLevel()
     {
-        levelManager.level = level;
-        SceneChanger.instance.LoadLevelScene();
+        levelManager.canvas.SetActive(false);
+        levelManager.UnloadLevel();
+        if (levelManager.level == 1)
+        {
+            SceneChanger.instance.LoadEndScene();
+        }
+        else
+        {
+            levelManager.level += 1;
+            print(level);
+            levelManager.LoadLevel();
+        }
     }
 }

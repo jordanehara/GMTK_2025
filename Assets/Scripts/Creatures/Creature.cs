@@ -25,7 +25,7 @@ public abstract class Creature : MonoBehaviour
     #region Creature States
     protected Rigidbody2D rb;
     [SerializeField] protected Animator animator;
-    public enum CreatureStates { Idle, Walk, Attack }
+    public enum CreatureStates { Idle, Walk, Attack1, Attack2 }
     [SerializeField] protected CreatureStates currentState;
     protected Vector2 direction;
     [SerializeField] protected float minIdleTime;
@@ -66,7 +66,7 @@ public abstract class Creature : MonoBehaviour
     protected string ChooseRandomActionFromList()
     {
         stateComplete = false;
-        return randomActionsList[Random.Range(0, randomActionsList.Count - 1)];
+        return randomActionsList[Random.Range(0, randomActionsList.Count)];
     }
 
     protected void setState(CreatureStates state)
@@ -87,11 +87,7 @@ public abstract class Creature : MonoBehaviour
         {
             ResetHealth();
             lineManager.DestroyLines();
-
-            if (currentState == CreatureStates.Attack)
-            {
-                lineManager.TakeDamage();
-            }
+            lineManager.TakeDamage();
         }
     }
 
@@ -128,14 +124,14 @@ public abstract class Creature : MonoBehaviour
 
         // Get random direction
         direction = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 1.0f);
-        if (direction.x < 0)
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+        bool flip = direction.x < 0;
+        GetComponent<SpriteRenderer>().flipX = flip;
+        foreach (SpriteRenderer sprite in sprites)
         {
-            transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+            sprite.flipX = flip;
         }
-        else
-        {
-            transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-        }
+
         rb.linearVelocity = direction.normalized * movementSpeed;
         yield return new WaitForSeconds(walkTime);
         rb.linearVelocity = Vector3.zero;

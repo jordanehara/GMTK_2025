@@ -21,7 +21,7 @@ public class Goblin : Creature
 
     protected IEnumerator Attack()
     {
-        setState(CreatureStates.Attack);
+        setState(CreatureStates.Attack1);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         stateComplete = true;
     }
