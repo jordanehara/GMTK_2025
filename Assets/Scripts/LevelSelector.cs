@@ -15,7 +15,7 @@ public class LevelSelector : MonoBehaviour
     {
         levelManager.canvas.SetActive(false);
         levelManager.UnloadLevel();
-        if (levelManager.level == 1)
+        if (levelManager.level == 3)
         {
             SceneChanger.instance.LoadEndScene();
         }
@@ -25,5 +25,10 @@ public class LevelSelector : MonoBehaviour
             print(level);
             levelManager.LoadLevel();
         }
+    }
+
+    public void LoadMain()
+    {
+        SceneChanger.instance.LoadMenuScene();
     }
 }
