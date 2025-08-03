@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public int level;
+    public int level = 1;
 
     [SerializeField] public List<GameObject> levels = new List<GameObject>();
     [SerializeField] private GameObject canvas;
