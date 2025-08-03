@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject[] creatures = GameObject.FindGameObjectsWithTag("Creatures");
+        GameObject[] creatures = GameObject.FindGameObjectsWithTag("Creature");
         if (creatures.Length == 0)
         {
             canvas.SetActive(true);
